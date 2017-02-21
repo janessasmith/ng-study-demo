@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗modal</title>
+	<script src="http://www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+</head>
+<body ng-app="modalApp">
+	<div ng-controller="modalParentCtrl">
+		<!-- 此处很重要，用script标签引入模态模板，注意script标签中的type和id -->
+		<script type="text/ng-template" id="modalChild.html">
+			<!-- 弹窗header/boder/footer -->
+			<div class="modal-header">
+				<h3>modal demo</h3>
+			</div>
+			<div class="modal-body">
+				<p ng-bind="data"></p>
+			</div>
+			<!-- 模态模板的交互部分 -->
+			<div class="modal-footer">
+				<button ng-click="confirm()">确认</button>
+				<button ng-click="cancel()">取消</button>
+			</div>
+		</script>
+
+		<!-- showModal -->
+		<div class="modal-parent">
+			<button ng-click="showModal()">点我</button>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		// 依赖注入ui-bootstarp
+		angular.module('modalApp', ['ui.bootstrap'])
+			// 注入$modal
+			.controller('modalParentCtrl', ['$scope', '$modal', function($scope, $modal) {
+				// 在ModalParent页面的控制器中定义数据，该数据会通过resolve传到modalChild页面
+				$scope.data = 'This is modal coding by JanessaSmith';
+
+				$scope.showModal = function() {
+					// $modal只有一个方法open，open方法打开模态页面，其中的参数即是指定的模态页面基本情况
+					var modalInstance = $modal.open({
+						// 指定之前id为该modalChild.html对应的模态模板
+						templateUrl: 'modalChild.html',
+						// 指定该模态的控制器
+						controller: 'modalChildCtrl',
+						// modalParent.html页面中的$scope.data会被用在modalChild.html页面中，通过该项配置即可达到目的
+						resolve: {
+							items: function() {
+								return $scope.data;
+							}
+						}
+					});
+					// 模态页面被打开之后
+					modalInstance.opened.then(function(result) {
+						console.log('modal is opened success');
+					}, function(reason) {
+						console.log('modal is opened failed');
+					});
+					// 模态页面关闭后，此处的result和reason对应于下面$modalInstance.close和$modalInstance.dismiss中对应的ok和cancel参数
+					modalInstance.result.then(function(result) {
+						console.log(result);
+					}, function(reason) {
+						console.log(reason);
+					});
+				}
+			}])
+			// modalChild.html页面控制器，注入$modalInstance，尤其注意此处注入了data，即上面resolve配置的参数，要保持一致
+			.controller('modalChildCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
+				$scope.data = items;
+
+				$scope.confirm = function() {
+					$modalInstance.close('ok');
+				};
+
+				$scope.cancel = function() {
+					$modalInstance.dismiss('cancel');
+				};
+		}]);
+	</script>
+</body>
+</html>
