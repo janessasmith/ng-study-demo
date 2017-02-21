@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>弹窗modal</title>
-	<script src="http://www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
-    <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.css">
+	<script type="text/javascript" src="../../lib/angular/angular.js"></script>
+    <script type="text/javascript" src="../../lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 </head>
 <body ng-app="modalApp">
 	<div ng-controller="modalParentCtrl">
@@ -19,14 +20,14 @@
 			</div>
 			<!-- 模态模板的交互部分 -->
 			<div class="modal-footer">
-				<button ng-click="confirm()">确认</button>
-				<button ng-click="cancel()">取消</button>
+				<button class="btn btn-primary" ng-click="confirm()">确认</button>
+				<button class="btn btn-danger" ng-click="cancel()">取消</button>
 			</div>
 		</script>
 
 		<!-- showModal -->
 		<div class="modal-parent">
-			<button ng-click="showModal()">点我</button>
+			<button class="btn btn-primary" ng-click="showModal()">点我</button>
 		</div>
 	</div>
 
