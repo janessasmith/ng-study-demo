@@ -7,3 +7,6 @@
 
 
 删除某个文件(譬如node_modules)的方法：``git rm -r node_modules`` 然后再提交一下``git commit -m "delete"`` ``git push origin master``
+
+
+``注意angular,bootstrap和ui-bootstrap的版本号，不对应可能会有冲突，建议使用npm或者bower安装``
