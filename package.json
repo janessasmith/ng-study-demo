@@ -13,7 +13,6 @@
         "type": "git",
         "url": "git+https://github.com/janessasmith/ng-study-demo.git"
     },
-
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/janessasmith/ng-study-demo/issues"
