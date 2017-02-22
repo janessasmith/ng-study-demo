@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗modal demo3</title>
+	<link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="../../../node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../../../node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js">
+    </script>
+	<!-- 引入自写modal -->
+    <script type="text/javascript" src="modal.js"></script>
+    <script type="text/javascript" src="service/showModal/showModal.js"></script>
+    <script type="text/javascript" src="service/showModalService.js"></script>
+</head>
+<body ng-app="modalModule">
+	<div ng-controller="modalCtrl">
+		<!-- showModal -->
+		<div class="modal-parent">
+			<button class="btn btn-primary" ng-click="showModal()">点我</button>
+		</div>
+	</div>
+</body>
+</html>
