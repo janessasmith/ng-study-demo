@@ -11,4 +11,15 @@
 
 ``注意angular,bootstrap和ui-bootstrap的版本号，不对应可能会有冲突，建议使用npm或者bower安装``
 
-###demo2是在demo1的基础上优化
+###demo1
+html和js都是写在一个页面中的，复用性不好，只为展示基本效果
+
+备注：在modalParent中需要注入ui.bootstrap，并依赖$modal;在modalChild中依赖$modalInstance
+
+###demo2
+demo2是在demo1的基础上优化，将弹窗的html和js单独写入一个文件夹中，通入依赖注入调用
+
+###demo3
+demo3将弹窗封装成一个服务，并将传入的值，重新封装
+
+备注：factory在自定义服务里注入服务，但不能注入$scope作用域对象
