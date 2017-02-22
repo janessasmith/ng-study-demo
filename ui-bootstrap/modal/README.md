@@ -10,3 +10,5 @@
 
 
 ``注意angular,bootstrap和ui-bootstrap的版本号，不对应可能会有冲突，建议使用npm或者bower安装``
+
+###demo2是在demo1的基础上优化
