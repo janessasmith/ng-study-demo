@@ -2,20 +2,23 @@
     "name": "ng-study-demo",
     "author": "JanessaSmith",
     "version": "1.0.0",
-    "description": "An AngularJS Demo Coding By JanessaSmith",
+    "description": "An AngularJs Demo Coding By JanessaSmith",
+    "keywords": "AngularJs, ng, tree-control, ui-bootstrap, bootstrap",
     "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server -a 0.0.0.0 -p 8888"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/janessasmith/ng-study-demo.git"
     },
+
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/janessasmith/ng-study-demo/issues"
     },
     "homepage": "https://github.com/janessasmith/ng-study-demo#readme",
-    "scripts": {
-        "start": "http-server -a 0.0.0.0 -p 8888",
-    },
     "devDependencies": {
         "angular": "^1.6.2",
         "angular-bootstrap": "^0.12.2",
